@@ -1,0 +1,550 @@
+:root {
+    --app-background-color: #121212;
+    --app-border-color: #fff;
+    --app-border-radius: 0.25rem;
+    --app-border-width: 0.0625rem;
+    --app-btn-background-color: #3f3f3f;
+    --app-btn-border-color: #575757;
+    --app-btn-button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --app-btn-color: #fff;
+    --app-btn-primary-hover-background: #717171;
+    --app-btn-primary-hover-border: #717171;
+    --app-btn-primary-inverse: #fff;
+    --app-btn-radius: 0.25rem;
+    --app-btn-spacing-horizontal: 0.7rem;
+    --app-btn-spacing-vertical: 1.2rem;
+    --app-container-padding-horizontal: 2rem;
+    --app-container-padding-vertical: 1.5rem;
+    --app-font-bold: 700;
+    --app-font-light: 300;
+    --app-font-medium: 500;
+    --app-font-regular: 400;
+    --app-font-semiebold: 600;
+    --app-font-size: 100%;
+    --app-font-weight: var(--app-font-regular);
+    --app-front-color: #fff;
+    --app-gradient-color: linear-gradient(100deg, #161ef5, #f40000);
+    --app-gradient-hover-color: linear-gradient(145deg, #161ef5, #f40000);
+    --app-grid-column-gap: var(--app-spacing);
+    --app-grid-row-gap: var(--app-spacing);
+    --app-group-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --app-icon-loading: url("data:image/svg+xml,%3Csvg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E g %7B animation: rotate 2s linear infinite; transform-origin: center center; %7D circle %7B stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; %7D @keyframes rotate %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D @keyframes dash %7B 0%25 %7B stroke-dasharray: 1,100; stroke-dashoffset: 0; %7D 50%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; %7D 100%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -62; %7D %7D %3C/style%3E%3Cg%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='rgb(136, 145, 164)' stroke-width='4' /%3E%3C/g%3E%3C/svg%3E");
+    --app-main-gradient: linear-gradient(135deg, rgba(22, 178, 245, 1) 0%, rgba(26, 104, 138, 1) 6%, rgba(28, 61, 75, 1) 12%, rgba(30, 30, 30, 1) 18%, rgba(30, 30, 30, 1) 82%, rgba(62, 38, 35, 1) 88%, rgba(68, 35, 30, 1) 96%, rgba(245, 48, 22, 1) 100%);
+    --app-nav-btn-radius: 0.7rem;
+    --app-nav-btn-spacing-horizontal: 0.7rem;
+    --app-nav-btn-spacing-vertical: 0.5rem;
+    --app-nav-element-spacing-horizontal: 0.8rem;
+    --app-nav-element-spacing-vertical: 0.5rem;
+    --app-nav-separator-color: #d9d9d9;
+    --app-nav-separator-height: 1rem;
+    --app-nav-separator-spacing: 0.5rem;
+    --app-nav-separator-width: 0.1rem;
+    --app-spacing: 1rem;
+    --app-transition: 0.2s ease-in-out;
+}
+
+/** color scheme */
+[data-theme=light],
+:root:not([data-theme=dark]) {
+    --app-background-color: #eeeeee;
+    --app-border-color: #1e1e1e;
+    --app-btn-background-color: #929292;
+    --app-btn-border-color: #929292;
+    --app-btn-button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --app-btn-color: #1e1e1e;
+    --app-btn-primary-hover-background: #b9b9b9;
+    --app-btn-primary-hover-border: #b9b9b9;
+    --app-btn-primary-inverse: #1e1e1e;
+    --app-front-color: #1e1e1e;
+    --app-gradient-color: linear-gradient(100deg, #161ef5, #f40000);
+    --app-gradient-hover-color: linear-gradient(145deg, #161ef5, #f40000);
+    --app-group-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --app-main-gradient: linear-gradient(45deg, rgba(22, 178, 245, 0.1) 0%, var(--app-background-color) 30%, var(--app-background-color) 70%, rgba(245, 48, 22, 0.1) 100%);
+    --app-nav-btn-radius: 0.7rem;
+    --app-nav-separator-color: #929292;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+* {
+    color: var(--app-front-color);
+    font-family: "Mohave", sans-serif;
+    font-size: var(--app-font-size);
+    font-weight: var(--app-font-regular);
+    margin: 0;
+    padding: 0;
+}
+
+/** tags */
+
+html {
+    scroll-behavior: smooth;
+}
+
+:is(html, body) {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    width: 100dvw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--app-main-gradient);
+}
+
+body>header {
+    padding-inline: calc(var(--app-container-padding-horizontal)/3);
+    border-bottom: var(--app-border-width) solid var(--app-border-color);
+}
+
+body> :is(header, footer) {
+    background-color: var(--app-background-color);
+}
+
+body> :is(header, main, footer) {
+    margin-inline: auto;
+    padding-block: var(--app-container-padding-vertical);
+    width: 100%;
+}
+
+body>main {
+    display: block;
+    padding-inline: 10vw;
+    padding-inline: 10dvw;
+}
+
+body>main> :is(div, p) {
+    padding-top: var(--app-spacing);
+    padding-bottom: var(--app-spacing);
+    margin-top: calc(2*var(--app-spacing));
+    margin-bottom: calc(2*var(--app-spacing));
+}
+
+body>main>h1:has(img.logo) {
+    position: relative;
+    top: -2.8rem;
+    margin: 0 auto;
+    padding: 0;
+}
+
+body>footer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-top: auto;
+    padding-inline: var(--app-container-padding-horizontal);
+    border-top: var(--app-border-width) solid var(--app-border-color);
+}
+
+body>footer a {
+    padding: var(--app-nav-element-spacing-vertical) var(--app-nav-element-spacing-horizontal);
+}
+
+[data-theme=light] body>footer div a img {
+    filter: invert(100%);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: visible;
+}
+
+nav,
+nav :is(ol, ul) {
+    display: flex;
+}
+
+nav :is(ol, ul) {
+    align-items: center;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0;
+    padding-block: var(--app-nav-element-spacing-vertical);
+    padding-inline: var(--app-nav-element-spacing-horizontal);
+}
+
+nav li.separator {
+    padding: var(--app-nav-separator-height) var(--app-nav-separator-width);
+    background-color: var(--app-nav-separator-color);
+    margin: 0 var(--app-nav-separator-spacing);
+}
+
+nav ul li p {
+    margin: 0;
+    text-align: end;
+}
+
+nav ul li :is(button, [role=button]) {
+    border-radius: var(--app-nav-btn-radius);
+    padding: var(--app-nav-btn-spacing-vertical) var(--app-nav-btn-spacing-horizontal);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --app-font-weight: 700;
+}
+
+h1 {
+  --app-font-size: 2rem;
+}
+
+h2 {
+  --app-font-size: 1.75rem;
+}
+
+h3 {
+  --app-font-size: 1.5rem;
+}
+
+h4 {
+  --app-font-size: 1.25rem;
+}
+
+h5 {
+  --app-font-size: 1.125rem;
+}
+
+h6 {
+  --app-font-size: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-indent: 0;
+}
+
+th,
+td {
+    font-weight: var(--app-font-medium);
+    font-size: 120%;
+    text-align: left;
+    text-align: start;
+}
+
+.reward,
+.reward>* {
+    font-weight: var(--app-font-semiebold);
+    font-size: 130%;
+}
+
+:is(div, p) {
+    margin-block: 0;
+}
+
+input:not([type=checkbox], [type=radio]),
+button[type=submit],
+select,
+textarea {
+    width: 100%;
+    margin-block: var(--app-spacing);
+}
+
+:not([role=group], :is(header nav li))> :is(button, [role=button]) {
+    margin-bottom: var(--app-spacing);
+}
+
+button,
+[role=button] {
+    background-color: var(--app-btn-background-color);
+    border-radius: var(--app-btn-radius);
+    border: 0 solid var(--app-btn-border-color);
+    color: var(--app-btn-color);
+    cursor: pointer;
+    outline: none;
+    padding: var(--app-btn-spacing-vertical) var(--app-btn-spacing-horizontal);
+    text-align: center;
+    text-decoration: none;
+    transition: background-color var(--app-transition), border-color var(--app-transition), color var(--app-transition), box-shadow var(--app-transition);
+}
+
+button[active],
+button:is(:hover, :active, :focus),
+[role=button][active],
+[role=button]:is(:hover, :active, :focus) {
+    --app-btn-background-color: var(--app-btn-primary-hover-background);
+    --app-btn-border-color: var(--app-btn-primary-hover-border);
+    --app-btn-box-shadow: var(--app-btn-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+    --app-btn-color: var(--app-btn-primary-inverse);
+    --app-gradient-color: var(--app-gradient-hover-color);
+}
+
+:is(button, [role=button]):not(nav :is(button, [role=button])) {
+    font-weight: var(--app-font-semiebold);
+    padding: var(--app-btn-spacing-vertical) calc(5*var(--app-btn-spacing-horizontal));
+}
+
+:is(button, [role=button])>img {
+    text-align: center;
+    vertical-align: middle;
+}
+
+[role=button] {
+    display: inline-block;
+}
+
+:where(button, [type=submit], [type=reset], [type=button], [role=button])[disabled],
+:where(fieldset[disabled]) :is(button, [type=submit], [type=button], [type=reset], [role=button]),
+input:not([type=submit], [type=button], [type=reset])[disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+fieldset {
+    width: 100%;
+    margin: 0;
+    margin-bottom: var(--pico-spacing);
+    padding: 0;
+    border: 0;
+}
+
+/* textbox */
+fieldset[role=group] {
+    display: flex;
+    flex-direction: row;
+    border-radius: calc(2*var(--app-btn-radius));
+    border: 0.1rem solid var(--app-btn-border-color);
+}
+
+fieldset[role=group] input {
+    flex-grow: 2;
+    border: none;
+    background-color: transparent;
+}
+
+fieldset[role=group] input:focus {
+    outline: none;
+}
+
+/* Add the focus effect to the form so it contains the button */
+fieldset[role=group]:focus-within {
+    border: 0.16rem solid var(--app-btn-border-color);
+}
+
+fieldset[role=group] input+button {
+    background: transparent;
+    color: var(--app-btn-color);
+    border: none;
+}
+
+/* remove +/- in-button: Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* remove +/- in-button: Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    padding-left: calc(2*var(--app-btn-spacing-horizontal));
+}
+
+[aria-busy=true]:not(input, select, textarea, html) {
+    white-space: nowrap;
+}
+
+[aria-busy=true]:not(input, select, textarea, html)::before {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-image: var(--app-icon-loading);
+    background-size: 1rem auto;
+    background-repeat: no-repeat;
+    content: "";
+    vertical-align: -0.125rem;
+}
+
+[aria-busy=true]:not(input, select, textarea, html):not(:empty)::before {
+    margin-inline-end: calc(var(--app-spacing) * 0.5);
+}
+
+[aria-busy=true]:not(input, select, textarea, html):empty {
+    text-align: center;
+}
+
+button[aria-busy=true],
+[type=submit][aria-busy=true],
+[type=button][aria-busy=true],
+[type=reset][aria-busy=true],
+[role=button][aria-busy=true],
+a[aria-busy=true] {
+    pointer-events: none;
+}
+
+label:has([type=checkbox], [type=radio]) {
+    width: -moz-fit-content;
+    width: fit-content;
+    cursor: pointer;
+}
+
+dialog#msg>article {
+    display: grid;
+    grid-template-columns: 1fr;
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: var(--app-background-color);
+    border-radius: var(--app-border-radius);
+    border: 0.1rem solid var(--app-border-color);
+    color: var(--app-front-color);
+    margin: 0;
+    min-width: calc(100vw / 2);
+    min-width: calc(100dvw / 2);
+    max-width: calc(100vw - var(--app-spacing) * 2);
+    max-width: calc(100dvw - var(--app-spacing) * 2);
+    max-height: calc(100vh - var(--app-spacing) * 2);
+    max-height: calc(100dvh - var(--app-spacing) * 2);
+    overflow: auto;
+    padding: var(--app-spacing);
+    transform: translate(-50%, -50%);
+}
+
+ul>li {
+    list-style: none;
+}
+
+/** classes */
+
+.center {
+    text-align: center;
+    justify-content: center;
+}
+
+.right {
+    text-align: right;
+    justify-content: end;
+}
+
+.left {
+    text-align: left;
+    justify-content: start;
+}
+
+.text-gradient {
+    background-image: var(--app-gradient-color);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    color: transparent;
+}
+
+.bg-gradient {
+    background: var(--app-gradient-color);
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+.lower {
+    text-transform: lowercase;
+}
+
+.text-8 {
+    font-size: 85%;
+}
+
+.text-9 {
+    font-size: 95%;
+}
+
+.text-16 {
+    font-size: 120%;
+}
+
+.text-24 {
+    font-size: 150%;
+}
+
+.text-32 {
+    font-size: 200%;
+}
+
+.text-70 {
+    font-size: 400%;
+}
+
+.text-m-32 {
+    font-size: 200%;
+    font-weight: var(--app-font-medium);
+}
+
+.text-ca {
+    font-size: clamp(75%, 2vw, 120%);
+    font-size: clamp(75%, 2dvw, 120%);
+}
+
+.big {
+    font-weight: var(--app-font-bold);
+    font-size: clamp(100%, 16vw, 700%);
+    font-size: clamp(100%, 16dvw, 700%);
+}
+
+.border-shadow {
+    border-radius: 1rem;
+    box-shadow: rgba(255, 255, 255, 0.04) 0px 10px 36px 0px, rgba(255, 255, 255, 0.0125) 0px 0px 0px 1px;
+    padding: calc(2*var(--app-spacing)) calc(2*var(--app-spacing));
+}
+
+.flexbox {
+    display: flex;
+    column-gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexbox label {
+    display: inline-block;
+}
+
+.v-space-1 {
+    margin-block: var(--app-spacing);
+}
+
+.v-space-2 {
+    margin-block: calc(2*var(--app-spacing));
+}
+
+.grid {
+    grid-column-gap: var(--app-grid-column-gap);
+    grid-row-gap: var(--app-grid-row-gap);
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+    }
+}
+
+.grid>* {
+    min-width: 0;
+}

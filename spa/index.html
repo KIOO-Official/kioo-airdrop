@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+    <title>KIOO, airdrop</title>
+    <link rel="stylesheet" href="/css/app.css" />
+    <meta name="robots" content="index,follow" />
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/" title="KIOO Airdrop"><img width="48px" height="48px" src="/img/kioo-logo.png"
+                            alt="KIOO logo"></a></li>
+                <li><a href="https://kioo.fi" class="upper" role="button" target="_blank">kioo</a></li>
+            </ul>
+            <ul>
+                <li style="display: none;"><a id="button-switch-network" class="upper" href="#" role="button"><img
+                            src="/img/icons/switch.svg"> network</a>
+                </li>
+                <li><a id="button-connect" class="upper" href="#" role="button"><img src="/img/icons/login.svg">
+                        connect</a></li>
+                <li style="display: none;">
+                    <ul>
+                        <li>
+                            <p class="upper"><span id="kioo-balance">42K $KIOO</span> <img width="16px" height="16px"
+                                    src="/img/kioo-logo.png"></p>
+                            <p class="upper"><span id="avax-balance">10 $AVAX</span> <img width="16px" height="16px"
+                                    src="/img/avax-logo.png"></p>
+                        <li class="separator"></li>
+                        <li id="user-address" class="upper">0x000...000</li>
+                        <li><a id="disconnect" href="#" role="button"><img src="/img/icons/logout.svg"></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="center big">KIOO Airdrop</h1>
+        <div class="grid">
+            <div>
+                <p class="upper center text-m-32">stats</p>
+                <div class="border-shadow">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th class="upper">CONTRACT BALANCE</th>
+                                <td id="stats-contract-balance" class="upper right">0 $KIOO</td>
+                            </tr>
+                            <tr>
+                                <th class="upper">TVL</th>
+                                <td id="stats-contract-tvl" class="upper right">$0.00</td>
+                            </tr>
+                            <tr>
+                                <th class="upper">WALLET</th>
+                                <td id="stats-wallet-balance" class="upper right">0.00 $KIOO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr class="v-space-1" />
+                    <p id="reward-claimed" style="display: none;">
+                        ✅ Congratulations 🎉, the reward was already claimed!
+                    </p>
+                    <ul id="reward-eligibility"></ul>
+                </div>
+            </div>
+
+            <div>
+                <p class="upper center text-m-32">airdrop</p>
+                <div class="border-shadow">
+                    <p class="upper center reward v-space-2">
+                        <span id="airdrop-amount" class="text-gradient">0.00
+                            $KIOO</span>
+                    </p>
+                    <p>
+                        <button id="claim" class="upper" type="submit" onclick="event.preventDefault();"
+                            disabled>claim</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            $KIOO is a community coin made by DeFi OGs. Join the community and enjoy building with us.
+        </div>
+        <div class="right">
+            <a href="https://kioo.fi"><img src="/img/icons/doc.svg"></a>
+            <a href="https://snowtrace.io/address/0x9b7646496DF31851a1F3ee72D6Eaf95E3d5352BC/contract/43114/code"><img
+                    src="/img/icons/explorer.svg"></a>
+            <a href="https://twitter.com/kiooofficial"><img src="/img/icons/x.svg"></a>
+        </div>
+    </footer>
+
+    <dialog id="msg" style="display: none;">
+        <article>
+            <h2 class="text-m-32"></h2>
+            <p class="v-space-2 text-16"></p>
+            <p class="v-space-1 center">
+                <button onclick="event.preventDefault();$('dialog#msg').hide('fast');">Close</button>
+            </p>
+        </article>
+    </dialog>
+
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/ethers-6.11.1.min.js"></script>
+    <script src="/js/kioo_airdrop.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
