@@ -447,7 +447,7 @@ const UpdateKiooPriceUsd = async () => {
     }
 };
 
-const printBigNumberToShortFormat = (number) => {
-    const formatter = Intl.NumberFormat("en", { notation: "compact",  maximumFractionDigits: 2  });
+const PrintBigNumberToShortFormat = (number) => {
+    const formatter = Intl.NumberFormat(undefined, { notation: "compact",  maximumFractionDigits: 2  });
     return formatter.format(number);
 }
