@@ -15,3 +15,13 @@ KIOO's airdrop webapp
    ```bash
    go run main.go
    ```
+
+## Contributing
+
+<pre>
+ (a) Create a git branch
+
+ (b) Push your code
+
+ (c) Create a pull request and assign to reviewer
+</pre>
