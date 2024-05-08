@@ -121,8 +121,8 @@ const InitForm = async () => {
     });
 
     // Global stats
-    $('#stats-contract-balance').text(`${Number.parseFloat(ethers.formatEther(ContractState.balance)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $KIOO`);
-    $('#stats-contract-tvl').text(`$${ContractState.balanceUsd.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 6 })}`);
+    $('#stats-contract-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(ethers.formatEther(ContractState.balance)))} $KIOO`);
+    $('#stats-contract-tvl').text(`$${PrintBigNumberToShortFormat(ContractState.balanceUsd)}`);
 
     // Claim button
     $('#claim').on('click', async (e) => {
@@ -155,16 +155,16 @@ const UpdateUI = async () => {
     }
 
     // Global Stats Updates
-    $('#stats-contract-balance').text(`${Number.parseFloat(ethers.formatEther(ContractState.balance)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $KIOO`);
-    $('#stats-contract-tvl').text(`$${ContractState.balanceUsd.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 6 })}`);
+    $('#stats-contract-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(ethers.formatEther(ContractState.balance)))} $KIOO`);
+    $('#stats-contract-tvl').text(`$${PrintBigNumberToShortFormat(ContractState.balanceUsd)}`);
 
     // Gloabl Updates
-    $('#avax-balance').text(`${Number.parseFloat(UserState.avaxBalance).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $AVAX`);
-    $('#kioo-balance').text(`${Number.parseFloat(UserState.kiooBalance).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $KIOO`);
+    $('#avax-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(UserState.avaxBalance))} $AVAX`);
+    $('#kioo-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(UserState.kiooBalance))} $KIOO`);
     $('#user-address').text(`${UserState.signer.address.substr(0, 5)}...${UserState.signer.address.substr(-3)}`);
 
     // User Stats Updates
-    $('#stats-wallet-balance').text(`${Number.parseFloat(UserState.kiooBalance).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $KIOO`);
+    $('#stats-wallet-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(UserState.kiooBalance))} $KIOO`);
     $('#airdrop-amount').html(`${Number.parseFloat(ethers.formatEther(ContractState.airdropAmount)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $KIOO`);
 
     // Checks
@@ -215,9 +215,9 @@ const _updateOnchainState = async (provider) => {
     await UpdateKiooPriceUsd();
     ContractState.balanceUsd = ethers.formatEther(ContractState.balance) * KiooInUsd.usdPrice;
 
-    debug('UserState: ', UserState);
-    debug('ContractState: ', ContractState);
-    debug('UpdateKiooPriceUsd: ', KiooInUsd);
+    // debug('UserState: ', UserState);
+    // debug('ContractState: ', ContractState);
+    // debug('UpdateKiooPriceUsd: ', KiooInUsd);
 };
 
 /* Handlers */
