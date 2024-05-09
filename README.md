@@ -9,19 +9,41 @@ KIOO's airdrop webapp
    ```bash
    git clone https://github.com/KIOO-Official/kioo-airdrop.git
    ```
-   
-2. Start the development server
+
+1. Intall the requirements
+
+   - Install Golang: <https://go.dev/doc/install>
+   - Install `air` command for live reload
+
+      ```bash
+      go install github.com/cosmtrek/air@latest
+      ```
+
+1. Start the development server
+
+   Run the app with live reload
+
+   ```bash
+   air
+   ```
+
+   Run the app
 
    ```bash
    go run main.go
    ```
 
+   Build the app
+
+   ```bash
+   goreleaser release --snapshot --clean
+   ```
+
 ## Contributing
 
-<pre>
- (a) Create a git branch
-
- (b) Push your code
-
- (c) Create a pull request and assign to reviewer
-</pre>
+```txt
+(a) Create a git branch
+(b) Comment the commit by adding the issue id(#xx)
+(c) Push your code
+(d) Create a pull request and assign to reviewer
+```
