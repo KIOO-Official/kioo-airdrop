@@ -29,7 +29,7 @@
     --app-grid-row-gap: var(--app-spacing);
     --app-group-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     --app-icon-loading: url("data:image/svg+xml,%3Csvg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E g %7B animation: rotate 2s linear infinite; transform-origin: center center; %7D circle %7B stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; %7D @keyframes rotate %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D @keyframes dash %7B 0%25 %7B stroke-dasharray: 1,100; stroke-dashoffset: 0; %7D 50%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; %7D 100%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -62; %7D %7D %3C/style%3E%3Cg%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='rgb(136, 145, 164)' stroke-width='4' /%3E%3C/g%3E%3C/svg%3E");
-    --app-main-gradient: linear-gradient(135deg, rgba(22, 178, 245, 1) 0%, rgba(26, 104, 138, 1) 6%, rgba(28, 61, 75, 1) 12%, rgba(30, 30, 30, 1) 18%, rgba(30, 30, 30, 1) 82%, rgba(62, 38, 35, 1) 88%, rgba(68, 35, 30, 1) 96%, rgba(245, 48, 22, 1) 100%);
+    --app-main-background: #1e1e1e;
     --app-nav-btn-radius: 0.7rem;
     --app-nav-btn-spacing-horizontal: 0.7rem;
     --app-nav-btn-spacing-vertical: 0.5rem;
@@ -41,6 +41,7 @@
     --app-nav-separator-width: 0.1rem;
     --app-spacing: 1rem;
     --app-transition: 0.2s ease-in-out;
+    --app-border-shadow: rgba(255, 255, 255, 0.04) 0px 10px 36px 0px, rgba(255, 255, 255, 0.0125) 0px 0px 0px 1px;
 }
 
 /** color scheme */
@@ -59,9 +60,10 @@
     --app-gradient-color: linear-gradient(100deg, #161ef5, #f40000);
     --app-gradient-hover-color: linear-gradient(145deg, #161ef5, #f40000);
     --app-group-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    --app-main-gradient: linear-gradient(45deg, rgba(22, 178, 245, 0.1) 0%, var(--app-background-color) 30%, var(--app-background-color) 70%, rgba(245, 48, 22, 0.1) 100%);
+    --app-main-background: #ececec;
     --app-nav-btn-radius: 0.7rem;
     --app-nav-separator-color: #929292;
+    --app-border-shadow: 0px 10px 15px -3px rgba(0,0,0,0.25);
 }
 
 *,
@@ -98,7 +100,7 @@ body {
     width: 100dvw;
     min-height: 100vh;
     min-height: 100dvh;
-    background: var(--app-main-gradient);
+    background: var(--app-main-background);
 }
 
 body>header {
@@ -508,7 +510,7 @@ ul>li {
 
 .border-shadow {
     border-radius: 1rem;
-    box-shadow: rgba(255, 255, 255, 0.04) 0px 10px 36px 0px, rgba(255, 255, 255, 0.0125) 0px 0px 0px 1px;
+    box-shadow: var(--app-border-shadow);
     padding: calc(2*var(--app-spacing)) calc(2*var(--app-spacing));
 }
 
