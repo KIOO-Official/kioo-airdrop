@@ -63,7 +63,7 @@ $(document).ready(async () => {
         setTimeout(HandleEthereum, 5 * 1000);
         window.removeEventListener('ethereum#initialized', HandleEthereum);
         if (web3Wallet === null || web3Wallet === undefined) {
-            return _msg('Wallet Error', 'Please install MetaMask or a Web3 EVM compatible wallet!');
+            _msg('Wallet Error', 'Please install MetaMask or a Web3 EVM compatible wallet!');
         }
     }
 
@@ -120,10 +120,6 @@ const InitForm = async () => {
         window.location.reload();
     });
 
-    // Global stats
-    $('#stats-contract-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(ethers.formatEther(ContractState.balance)))} $KIOO`);
-    $('#stats-contract-tvl').text(`$${PrintBigNumberToShortFormat(ContractState.balanceUsd)}`);
-
     // Claim button
     $('#claim').on('click', async (e) => {
         e.preventDefault();
@@ -135,6 +131,17 @@ const InitForm = async () => {
             elt.removeAttr('aria-busy');
         }
     });
+
+    // Copy buttons
+    $('a[data-copy]').on('click', async (e) => {
+        e.preventDefault();
+        await CopyHandler(e);
+    });
+
+    // Global stats
+    $('#stats-contract-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(ethers.formatEther(ContractState.balance)))} $KIOO`);
+    $('#stats-contract-tvl').text(`$${PrintBigNumberToShortFormat(ContractState.balanceUsd)}`);
+    $('#airdrop-amount').html(`${Number.parseFloat(ethers.formatEther(ContractState.airdropAmount)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $KIOO`);
 };
 
 const UpdateUI = async () => {
@@ -165,7 +172,6 @@ const UpdateUI = async () => {
 
     // User Stats Updates
     $('#stats-wallet-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(UserState.kiooBalance))} $KIOO`);
-    $('#airdrop-amount').html(`${Number.parseFloat(ethers.formatEther(ContractState.airdropAmount)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $KIOO`);
 
     // Checks
     if (ContractState.live === false) {
@@ -336,6 +342,33 @@ const ClaimHandler = async () => {
     await Sleep(2 * 1000);
 
     await UpdateUI();
+};
+
+const CopyHandler = async (e) => {
+    navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
+        if (result.state !== 'granted' && result.state !== 'prompt') {
+            danger('no permission to write on clipboard');
+            _msg('Copy Handler', "Looks like this browser doesn't support <em>clipboard</em> permission.<br>Please copy/paste manually the link.");
+            return;
+        }
+    });
+    const elt = $(e.currentTarget);
+    const textToCopy = elt.data('copy-text');
+    const spanElt = elt.find('span');
+    try {
+        await navigator.clipboard.writeText(textToCopy);
+        spanElt.hide();
+        spanElt.text('copied!');
+        spanElt.fadeIn();
+    } catch (err) {
+        danger(err);
+    } finally {
+        setTimeout(
+            () => {
+                spanElt.fadeOut('slow');
+            },
+            1.5 * 1000);
+    }
 };
 
 /* UI Utils */
