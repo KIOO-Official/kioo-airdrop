@@ -63,7 +63,7 @@
     --app-main-background: #ececec;
     --app-nav-btn-radius: 0.7rem;
     --app-nav-separator-color: #929292;
-    --app-border-shadow: rgba(150, 150, 150, 0.04) 0px 10px 36px 0px, rgba(150, 150, 150, 0.0125) 0px 0px 0px 1px;
+    --app-border-shadow: 0px 10px 15px -3px rgba(0,0,0,0.25);
 }
 
 *,
