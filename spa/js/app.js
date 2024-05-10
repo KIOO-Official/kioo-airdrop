@@ -140,7 +140,7 @@ const InitForm = async () => {
 
     // Global stats
     $('#stats-contract-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(ethers.formatEther(ContractState.balance)))} $KIOO`);
-    $('#stats-contract-tvl').text(`$${PrintBigNumberToShortFormat(ContractState.balanceUsd)}`);
+    // $('#stats-contract-tvl').text(`$${PrintBigNumberToShortFormat(ContractState.balanceUsd)}`);
     $('#airdrop-amount').html(`${Number.parseFloat(ethers.formatEther(ContractState.airdropAmount)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} $KIOO`);
 };
 
@@ -163,7 +163,7 @@ const UpdateUI = async () => {
 
     // Global Stats Updates
     $('#stats-contract-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(ethers.formatEther(ContractState.balance)))} $KIOO`);
-    $('#stats-contract-tvl').text(`$${PrintBigNumberToShortFormat(ContractState.balanceUsd)}`);
+    // $('#stats-contract-tvl').text(`$${PrintBigNumberToShortFormat(ContractState.balanceUsd)}`);
 
     // Gloabl Updates
     $('#avax-balance').text(`${PrintBigNumberToShortFormat(Number.parseFloat(UserState.avaxBalance))} $AVAX`);
