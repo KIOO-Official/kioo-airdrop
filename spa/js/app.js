@@ -60,7 +60,7 @@ $(document).ready(async () => {
             HandleEthereum,
             { once: true }
         );
-        setTimeout(HandleEthereum, 5 * 1000);
+        setTimeout(HandleEthereum, 3 * 1000);
         window.removeEventListener('ethereum#initialized', HandleEthereum);
         if (web3Wallet === null || web3Wallet === undefined) {
             _msg('Wallet Error', 'Please install MetaMask or a Web3 EVM compatible wallet!');
