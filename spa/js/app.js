@@ -182,15 +182,15 @@ const UpdateUI = async () => {
 
     if (UserState.rewardClaimed) {
         $('#reward-claimed').show('fast');
+        $('button#claim').attr('disabled', true);
     } else {
         $('#reward-claimed').hide('fast');
-
+        
         // Eligibility check wallet
         const eligibilityList = $('#reward-eligibility');
         eligibilityList.html('<li><h3>Requirements</h3></li>');
         eligibilityList.append(`<li>${!UserState.rewardClaimed ? '✅' : '❌'} Reward not yet claimed</li>`);
         eligibilityList.append(`<li>${UserState.kiooBalance == 0.0 ? '✅' : '❌'} No $KIOO in the wallet${UserState.kiooBalance > 0.0 ? ' (send your $KIOO to another wallet)' : ''}</li>`);
-
         if (UserIsEligible()) {
             $('button#claim').removeAttr('disabled');
         }
@@ -481,6 +481,6 @@ const UpdateKiooPriceUsd = async () => {
 };
 
 const PrintBigNumberToShortFormat = (number) => {
-    const formatter = Intl.NumberFormat(undefined, { notation: "compact",  maximumFractionDigits: 2, minimumFractionDigits: 2  });
+    const formatter = Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 2, minimumFractionDigits: 2 });
     return formatter.format(number);
 }
