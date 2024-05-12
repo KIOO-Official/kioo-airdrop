@@ -78,6 +78,10 @@ $(document).ready(async () => {
             if (elt.is(':visible')) { elt.removeAttr('aria-busy'); }
         }
     }
+
+    if (ContractState.balance === 0n) {
+        _msg('Wow! 🎉', `Our KIOO airdrop has been a resounding success! 🥳<br />Huge thanks to our incredible community for joining us.<br />The reward balance is officially empty, but stay tuned for more exciting opportunities!`);
+    }
 });
 
 const InitForm = async () => {
@@ -185,7 +189,7 @@ const UpdateUI = async () => {
         $('button#claim').attr('disabled', true);
     } else {
         $('#reward-claimed').hide('fast');
-        
+
         // Eligibility check wallet
         const eligibilityList = $('#reward-eligibility');
         eligibilityList.html('<li><h3>Requirements</h3></li>');
