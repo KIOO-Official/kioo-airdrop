@@ -1,14 +1,14 @@
 :root {
-    --app-background-color: #121212;
+    --app-background-color: #03022a;
     --app-border-color: #fff;
     --app-border-radius: 0.25rem;
     --app-border-width: 0.0625rem;
-    --app-btn-background-color: #3f3f3f;
-    --app-btn-border-color: #575757;
+    --app-btn-background-color: rgba(129, 34, 240, 0.90);
+    --app-btn-border-color: rgba(129, 34, 240, 0.85);
     --app-btn-button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     --app-btn-color: #fff;
-    --app-btn-primary-hover-background: #717171;
-    --app-btn-primary-hover-border: #717171;
+    --app-btn-primary-hover-background: rgba(129, 34, 240, 0.75);
+    --app-btn-primary-hover-border: rgba(129, 34, 240, 0.75);
     --app-btn-primary-inverse: #fff;
     --app-btn-radius: 0.25rem;
     --app-btn-spacing-horizontal: 0.7rem;
@@ -23,19 +23,19 @@
     --app-font-size: 100%;
     --app-font-weight: var(--app-font-regular);
     --app-front-color: #fff;
-    --app-gradient-color: linear-gradient(100deg, #161ef5, #f40000);
-    --app-gradient-hover-color: linear-gradient(145deg, #161ef5, #f40000);
+    --app-gradient-color: linear-gradient(100deg, #3f78f3, #be1fd9);
+    --app-gradient-hover-color: linear-gradient(145deg, #3f78f3, #be1fd9);
     --app-grid-column-gap: var(--app-spacing);
     --app-grid-row-gap: var(--app-spacing);
     --app-group-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     --app-icon-loading: url("data:image/svg+xml,%3Csvg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E g %7B animation: rotate 2s linear infinite; transform-origin: center center; %7D circle %7B stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; %7D @keyframes rotate %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D @keyframes dash %7B 0%25 %7B stroke-dasharray: 1,100; stroke-dashoffset: 0; %7D 50%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; %7D 100%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -62; %7D %7D %3C/style%3E%3Cg%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='rgb(136, 145, 164)' stroke-width='4' /%3E%3C/g%3E%3C/svg%3E");
-    --app-main-background: #1e1e1e;
+    --app-main-background: var(--app-background-color);
     --app-nav-btn-radius: 0.7rem;
     --app-nav-btn-spacing-horizontal: 0.7rem;
     --app-nav-btn-spacing-vertical: 0.5rem;
     --app-nav-element-spacing-horizontal: 0.8rem;
     --app-nav-element-spacing-vertical: 0.5rem;
-    --app-nav-separator-color: #d9d9d9;
+    --app-nav-separator-color: #fff;
     --app-nav-separator-height: 1rem;
     --app-nav-separator-spacing: 0.5rem;
     --app-nav-separator-width: 0.1rem;
@@ -48,22 +48,20 @@
 [data-theme=light],
 :root:not([data-theme=dark]) {
     --app-background-color: #eeeeee;
-    --app-border-color: #1e1e1e;
-    --app-btn-background-color: #929292;
-    --app-btn-border-color: #929292;
+    --app-border-color: #03022a;
+    --app-btn-background-color: rgba(129, 34, 240, 1.0);
+    --app-btn-border-color: rgba(129, 34, 240, 1.0);
     --app-btn-button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    --app-btn-color: #1e1e1e;
-    --app-btn-primary-hover-background: #b9b9b9;
-    --app-btn-primary-hover-border: #b9b9b9;
-    --app-btn-primary-inverse: #1e1e1e;
-    --app-front-color: #1e1e1e;
-    --app-gradient-color: linear-gradient(100deg, #161ef5, #f40000);
-    --app-gradient-hover-color: linear-gradient(145deg, #161ef5, #f40000);
+    --app-btn-color: #03022a;
+    --app-btn-primary-hover-background: rgba(129, 34, 240, 0.85);
+    --app-btn-primary-hover-border: rgba(129, 34, 240, 0.85);
+    --app-btn-primary-inverse: #03022a;
+    --app-front-color: #03022a;
     --app-group-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    --app-main-background: #ececec;
+    --app-main-background: #eeeeee;
     --app-nav-btn-radius: 0.7rem;
-    --app-nav-separator-color: #929292;
-    --app-border-shadow: 0px 10px 15px -3px rgba(0,0,0,0.25);
+    --app-nav-separator-color: rgba(129, 34, 240, 1.0);
+    --app-border-shadow: 0rem 0.3rem 0.5rem -0.1rem rgba(0, 0, 0, 0.45);
 }
 
 *,
@@ -202,31 +200,31 @@ h3,
 h4,
 h5,
 h6 {
-  --app-font-weight: 700;
+    --app-font-weight: 700;
 }
 
 h1 {
-  --app-font-size: 2rem;
+    --app-font-size: 2rem;
 }
 
 h2 {
-  --app-font-size: 1.75rem;
+    --app-font-size: 1.75rem;
 }
 
 h3 {
-  --app-font-size: 1.5rem;
+    --app-font-size: 1.5rem;
 }
 
 h4 {
-  --app-font-size: 1.25rem;
+    --app-font-size: 1.25rem;
 }
 
 h5 {
-  --app-font-size: 1.125rem;
+    --app-font-size: 1.125rem;
 }
 
 h6 {
-  --app-font-size: 1rem;
+    --app-font-size: 1rem;
 }
 
 table {
@@ -443,6 +441,10 @@ ul>li {
 .left {
     text-align: left;
     justify-content: start;
+}
+
+.title-color {
+    color: #05f2ff;
 }
 
 .text-gradient {
