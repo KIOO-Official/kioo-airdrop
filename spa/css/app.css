@@ -2,6 +2,7 @@
     --app-background-color: #03022a;
     --app-border-color: #fff;
     --app-border-radius: 0.25rem;
+    --app-border-shadow: rgba(255, 255, 255, 0.04) 0px 10px 36px 0px, rgba(255, 255, 255, 0.0125) 0px 0px 0px 1px;
     --app-border-width: 0.0625rem;
     --app-btn-background-color: rgba(129, 34, 240, 0.90);
     --app-btn-border-color: rgba(129, 34, 240, 0.85);
@@ -42,7 +43,6 @@
     --app-spacing: 1rem;
     --app-title-color: #05ffff;
     --app-transition: 0.2s ease-in-out;
-    --app-border-shadow: rgba(255, 255, 255, 0.04) 0px 10px 36px 0px, rgba(255, 255, 255, 0.0125) 0px 0px 0px 1px;
 }
 
 /** color scheme */
